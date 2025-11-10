@@ -41,7 +41,10 @@ pnpm expo start
 git init
 git add .
 git commit -m "initial commit"
-git remote add origin https://github.com/<YOUR_USERNAME>/<REPO_NAME>.git
+git remote add origin https://github.com/<YOUR_USERNAME>/<REPO_NAME>.
+git remote set-url origin https://github.com/navi4347/ReactNative_myapp.git
+
+git branch
 git push --set-upstream origin master
 
 ## Folder Stcture
