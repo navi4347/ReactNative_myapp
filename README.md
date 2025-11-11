@@ -49,95 +49,144 @@ git push --set-upstream origin master
 git push
 
 ## Folder Stcture
-MY-APP/
+C:.
+│   .env
+│   .env.example
+│   .gitignore
+│   app.json
+│   eslint.config.js
+│   expo-env.d.ts
+│   folderstructure.js
+│   package.json
+│   pnpm-lock.yaml
+│   README.md
+│   tsconfig.json
 │
-├─ .env
-├─ .env.example
-├─ .gitignore
-├─ app.json
-├─ package.json
-├─ eslint.config.js
-├─ tsconfig.json
-├─ README.md
+├───.expo
+│   │   devices.json
+│   │   README.md
+│   │
+│   ├───types
+│   │       router.d.ts
+│   │
+│   └───web
+│       └───cache
+│           └───production
+│               └───images
+│                   └───favicon
+│                       └───favicon-a4e030697a7571b3e95d31860e4da55d2f98e5e861e2b55e414f45a8556828ba-contain-transparent
+│                               favicon-48.png
 │
-├─ app/                          # Expo Router (not modified)
+├───.github
+│   └───workflows
+│           ci.yml
 │
-├─ src/
-│  ├─ index.tsx                  # App entry file
-│  ├─ App.tsx                    # Root wrapper for navigation/theme/providers
-│  │
-│  ├─ navigation/
-│  │  ├─ AppNavigator.tsx
-│  │  ├─ MainTabNavigator.tsx
-│  │  └─ AuthStackNavigator.tsx
-│  │
-│  ├─ screens/
-│  │  ├─ SplashScreen.tsx
-│  │  ├─ NotFoundScreen.tsx
-│  │  ├─ LoginScreen.tsx
-│  │  ├─ SignInScreen.tsx
-│  │  │
-│  │  ├─ Home/
-│  │  │  └─ HomeScreen.tsx
-│  │  └─ Dashboard/
-│  │     └─ DashboardScreen.tsx
-│  │
-│  ├─ pages/
-│  │  ├─ AboutPage.tsx
-│  │  ├─ ProfilePage.tsx
-│  │  └─ SettingsPage.tsx
-│  │
-│  ├─ components/
-│  │  ├─ shared/
-│  │  │  ├─ Button.tsx
-│  │  │  ├─ Header.tsx
-│  │  │  ├─ Icon.tsx
-│  │  │  ├─ Loader.tsx
-│  │  │  └─ index.ts
-│  │  └─ ui/
-│  │     └─ (add UI primitives later)
-│  │
-│  ├─ hooks/
-│  │  ├─ useAuth.ts
-│  │  └─ useFetch.ts
-│  │
-│  ├─ services/
-│  │  ├─ api/
-│  │  │  ├─ client.ts
-│  │  │  └─ auth.ts
-│  │  └─ storage.ts
-│  │
-│  ├─ store/
-│  │  └─ index.ts
-│  │
-│  ├─ constants/
-│  │  └─ index.ts
-│  │
-│  ├─ utils/
-│  │  └─ format.ts
-│  │
-│  ├─ theme/
-│  │  ├─ colors.ts
-│  │  ├─ typography.ts
-│  │  └─ spacing.ts
-│  │
-│  ├─ assets/
-│  │  ├─ images/logo.png
-│  │  ├─ fonts/Inter-Regular.ttf
-│  │  ├─ json/sample-data.json
-│  │  └─ loaders/spinner.json
-│  │
-│  └─ types/
-│     └─ index.d.ts
+├───.vscode
+│   │   extensions.json
+│   │   settings.json
+│   │
+│   └───.react
+├───app
+│       index.tsx
+│       _layout.tsx
 │
-├─ server/                      # Optional local backend mock
-│  └─ (extend when backend needed)
+├───assets
+│   └───images
+│           android-icon-background.png
+│           android-icon-foreground.png
+│           android-icon-monochrome.png
+│           favicon.png
+│           icon.png
+│           partial-react-logo.png
+│           react-logo.png
+│           react-logo@2x.png
+│           react-logo@3x.png
+│           splash-icon.png
 │
-├─ tests/
-│  ├─ __tests__/
-│  └─ setupTests.ts
+├───scripts
+│       reset-project.js
 │
-└─ scripts/
-   ├─ folderstructure.js         # Creates missing folders only (non-destructive)
-   └─ reset-project.js           # Removes generated structure (safe reset)
-
+├───src
+│   │   App.tsx
+│   │   index.tsx
+│   │
+│   ├───assets
+│   │   ├───fonts
+│   │   │       Inter-Regular.ttf
+│   │   │
+│   │   ├───images
+│   │   │       logo.png
+│   │   │
+│   │   ├───json
+│   │   │       sample-data.json
+│   │   │
+│   │   └───loaders
+│   │           spinner.json
+│   │
+│   ├───components
+│   │   ├───shared
+│   │   │       Button.tsx
+│   │   │       Header.tsx
+│   │   │       Icon.tsx
+│   │   │       index.ts
+│   │   │       Loader.tsx
+│   │   │
+│   │   └───ui
+│   ├───constants
+│   │       index.ts
+│   │
+│   ├───hooks
+│   │       useAuth.ts
+│   │       useFetch.ts
+│   │
+│   ├───navigation
+│   │       AppNavigator.tsx
+│   │       AuthStackNavigator.tsx
+│   │       MainTabNavigator.tsx
+│   │
+│   ├───pages
+│   │       AboutPage.tsx
+│   │       ProfilePage.tsx
+│   │       SettingsPage.tsx
+│   │
+│   ├───screens
+│   │   │   LoginScreen.tsx
+│   │   │   NotFoundScreen.tsx
+│   │   │   SignInScreen.tsx
+│   │   │   SplashScreen.tsx
+│   │   │
+│   │   ├───Dashboard
+│   │   │       DashboardScreen.tsx
+│   │   │
+│   │   └───Home
+│   │           HomeScreen.tsx
+│   │
+│   ├───services
+│   │   │   storage.ts
+│   │   │
+│   │   └───api
+│   │           auth.ts
+│   │           client.ts
+│   │
+│   ├───store
+│   │       index.ts
+│   │
+│   ├───theme
+│   │       colors.ts
+│   │       spacing.ts
+│   │       typography.ts
+│   │
+│   ├───types
+│   │       index.d.ts
+│   │
+│   └───utils
+│           format.ts
+│
+└───tests
+    │   setupTests.ts
+    │
+    └───__tests__
+        │   App.test.tsx
+        │
+        └───components
+                Button.test.tsx

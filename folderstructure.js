@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+/** 
+ * - node folderstructure.js
+ */
+
+
 /**
  * Auto-create full src/ project structure (non-destructive).
  * - Does NOT touch /app folder.
@@ -7,33 +12,41 @@
  * - Only creates missing directories and placeholder files.
  */
 
+
 const fs = require("fs");
 const path = require("path");
 
+
 const root = process.cwd();
+
 
 // ---- Ensure root-level .env / .env.example ----
 const envFile = path.join(root, ".env");
 const envExampleFile = path.join(root, ".env.example");
+
 
 if (!fs.existsSync(envFile)) {
   fs.writeFileSync(envFile, "API_URL=\nTOKEN=\n");
   console.log("✔️ Created .env");
 }
 
+
 if (!fs.existsSync(envExampleFile)) {
   fs.writeFileSync(envExampleFile, "API_URL=<YOUR_API_URL>\nTOKEN=<YOUR_TOKEN>\n");
   console.log("✔️ Created .env.example");
 }
 
+
 // ---- Ensure /scripts/reset-project.js ----
 const scriptsDir = path.join(root, "scripts");
 const resetScript = path.join(scriptsDir, "reset-project.js");
+
 
 if (!fs.existsSync(scriptsDir)) {
   fs.mkdirSync(scriptsDir);
   console.log("📁 Created /scripts directory");
 }
+
 
 if (!fs.existsSync(resetScript)) {
   fs.writeFileSync(resetScript, `#!/usr/bin/env node
@@ -43,8 +56,29 @@ console.log("Project reset script placeholder. Customize if needed.");
   console.log("✔️ Created scripts/reset-project.js");
 }
 
+
 // ---- SRC Folder Structure Definition ----
 const tree = {
+  ".github": {
+    "workflows": {
+      "ci.yml": `name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm install
+      - run: npm run build
+      - run: npm test
+`
+    }
+  },
+
   "src": {
     "index.tsx": "// entry point",
     "App.tsx": "// root providers + navigation bootstrap",
@@ -147,10 +181,12 @@ const tree = {
   }
 };
 
+
 // ---- Recursive Builder ----
 function createTree(base, obj) {
   for (const name in obj) {
     const fullPath = path.join(base, name);
+
 
     if (typeof obj[name] === "string") {
       if (!fs.existsSync(fullPath)) {
@@ -166,6 +202,7 @@ function createTree(base, obj) {
     }
   }
 }
+
 
 // ---- RUN ----
 console.log("\n🚀 Creating project structure...\n");
