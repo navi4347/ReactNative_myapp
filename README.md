@@ -16,24 +16,28 @@ The default `app/` directory used by Expo Router remains **untouched**, and the 
 
 ## 🚀 Tech Stack
 
-| Category | Technology |
-|---------|------------|
-| Framework | Expo + React Native |
-| Language | TypeScript |
-| Package Manager | **pnpm** (recommended) |
-| Navigation | React Navigation |
-| API Client | Fetch / Axios (client wrapper in `services/api/client.ts`) |
-| Storage | AsyncStorage / MMKV (wrapper in `services/storage.ts`) |
-| Testing | Jest + React Testing Library |
+| Category        | Technology                                                 |
+| --------------- | ---------------------------------------------------------- |
+| Framework       | Expo + React Native                                        |
+| Language        | TypeScript                                                 |
+| Package Manager | **pnpm** (recommended)                                     |
+| Navigation      | React Navigation                                           |
+| API Client      | Fetch / Axios (client wrapper in `services/api/client.ts`) |
+| Storage         | AsyncStorage / MMKV (wrapper in `services/storage.ts`)     |
+| Testing         | Jest + React Testing Library                               |
 
 ---
 
 ## 📦 Installation
 
-```bash
+````bash
 pnpm install
 pnpm expo start
 
+pnpm add react-native-paper
+pnpm add react-native-safe-area-context
+pnpm add @react-navigation/native @react-navigation/native-stack
+pnpm add react-native-toast-message
 
 ---
 
@@ -48,12 +52,13 @@ git branch
 git push --set-upstream origin master
 git push
 
-## Folder Stcture
+## Folder Stcture  tree /f
 C:.
 │   .env
 │   .env.example
 │   .gitignore
 │   app.json
+│   declarations.d.ts
 │   eslint.config.js
 │   expo-env.d.ts
 │   folderstructure.js
@@ -91,6 +96,11 @@ C:.
 │       _layout.tsx
 │
 ├───assets
+│   ├───fonts
+│   │       magneto.TTF
+│   │       momo.ttf
+│   │       Ponnala.ttf
+│   │
 │   └───images
 │           android-icon-background.png
 │           android-icon-foreground.png
@@ -113,6 +123,9 @@ C:.
 │   ├───assets
 │   │   ├───fonts
 │   │   │       Inter-Regular.ttf
+│   │   │       magneto.ttf
+│   │   │       momo.ttf
+│   │   │       Ponnala.ttf
 │   │   │
 │   │   ├───images
 │   │   │       logo.png
@@ -130,6 +143,7 @@ C:.
 │   │   │       Icon.tsx
 │   │   │       index.ts
 │   │   │       Loader.tsx
+│   │   │       RowLink.tsx
 │   │   │
 │   │   └───ui
 │   ├───constants
@@ -152,7 +166,7 @@ C:.
 │   ├───screens
 │   │   │   LoginScreen.tsx
 │   │   │   NotFoundScreen.tsx
-│   │   │   SignInScreen.tsx
+│   │   │   SignUpScreen.tsx
 │   │   │   SplashScreen.tsx
 │   │   │
 │   │   ├───Dashboard
@@ -180,6 +194,7 @@ C:.
 │   │       index.d.ts
 │   │
 │   └───utils
+│           fonts.ts
 │           format.ts
 │
 └───tests
@@ -189,4 +204,5 @@ C:.
         │   App.test.tsx
         │
         └───components
-                Button.test.tsx
+                Button.test.tsx```
+````
